@@ -1,0 +1,35 @@
+<p>list-user works!</p>
+
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col" sortable="id">id</th>
+        <th scope="col" sortable="fullNam">Full Name</th>
+        <th scope="col" sortable="cityName">City</th>
+        <th scope="col" sortable="userEmail">Email</th>
+        <th scope="col" sortable="mobileNum">Mobile Number</th>
+        <th scope="col" sortable="##">##</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+
+
+       <tr *ngFor="let user of listUsers"> 
+        <th scope="row">{{ user.id }}</th>
+        <td>{{user.fullNam}}</td>
+        <td>{{ user.cityNam }}</td>
+        <td>{{ user.userEmail }}</td>
+        <td>{{ user.mobileNum }}</td> 
+        <td>
+            <button type="button" class="btn btn-light mr-1">Edit</button>
+            <button type="button" class="btn btn-light mr-1">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
