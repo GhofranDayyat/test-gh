@@ -20,14 +20,15 @@
 
 
        <tr *ngFor="let user of listUsers"> 
-        <th scope="row">{{ user.id }}</th>
+        <th scope="row">{{ user.personId }}</th>
         <td>{{user.fullNam}}</td>
         <td>{{ user.cityNam }}</td>
         <td>{{ user.userEmail }}</td>
         <td>{{ user.mobileNum }}</td> 
         <td>
-            <button type="button" class="btn btn-light mr-1">Edit</button>
-            <button type="button" class="btn btn-light mr-1">Delete</button>
+          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/edit',user.id]">Edit</a></button>
+          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/delete',user.id]">Delete</a></button>
+
         </td>
       </tr>
 
