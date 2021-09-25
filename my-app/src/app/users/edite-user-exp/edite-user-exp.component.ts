@@ -3,13 +3,13 @@ import { FormBuilder,FormControl,FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
-
 @Component({
-  selector: 'app-edite-user',
-  templateUrl: './edite-user.component.html',
-  styleUrls: ['./edite-user.component.css']
+  selector: 'app-edite-user-exp',
+  templateUrl: './edite-user-exp.component.html',
+  styleUrls: ['./edite-user-exp.component.css']
 })
-export class EditeUserComponent implements OnInit {
+export class EditeUserExpComponent implements OnInit {
+
   addUserForm: FormGroup= new FormGroup({})
   userId : string   = '';
 
@@ -32,9 +32,9 @@ export class EditeUserComponent implements OnInit {
         console.log(this.userId ,this.addUserForm.value);       
       }
     
-      editUser(){
+      editUserExp(){
         if(this.userId){      
-          this.userService.updateUser(this.addUserForm.value,this.userId).subscribe(data=>{
+          this.userService.updateUserExp(this.addUserForm.value,this.userId).subscribe(data=>{
           this._snackBar.open("user updated successfully")
           
         }, err=>{
@@ -44,5 +44,4 @@ export class EditeUserComponent implements OnInit {
         })
       }
     }
-
 }

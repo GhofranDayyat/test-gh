@@ -13,6 +13,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import {RouterModule} from '@angular/router';
+import { AddUserExpComponent } from './add-user-exp/add-user-exp.component';
+import { ViewUserExpComponent } from './view-user-exp/view-user-exp.component';
+import { ListUserExpComponent } from './list-user-exp/list-user-exp.component';
+import { EditeUserExpComponent } from './edite-user-exp/edite-user-exp.component';
+import { DeleteUserExpComponent } from './delete-user-exp/delete-user-exp.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import {RouterModule} from '@angular/router';
     ViewUserComponent,
     AddUserComponent,
     EditeUserComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    AddUserExpComponent,
+    ViewUserExpComponent,
+    ListUserExpComponent,
+    EditeUserExpComponent,
+    DeleteUserExpComponent
   ],
   imports: [
     CommonModule,

@@ -3,12 +3,12 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
-  selector: 'app-add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  selector: 'app-add-user-exp',
+  templateUrl: './add-user-exp.component.html',
+  styleUrls: ['./add-user-exp.component.css']
 })
-export class AddUserComponent implements OnInit {
-addUserForm: FormGroup= new FormGroup({})
+export class AddUserExpComponent implements OnInit {
+  addUserForm: FormGroup= new FormGroup({})
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
     private _snackBar: MatSnackBar
@@ -24,7 +24,7 @@ addUserForm: FormGroup= new FormGroup({})
         })
   }
 
-  createUser(){
+  createUserExp(){
     // console.log(this.addUserForm.value);
 
     this.userService.addUser(this.addUserForm.value).subscribe(data=>{
