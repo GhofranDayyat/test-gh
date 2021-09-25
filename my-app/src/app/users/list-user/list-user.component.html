@@ -26,8 +26,9 @@
         <td>{{ user.userEmail }}</td>
         <td>{{ user.mobileNum }}</td> 
         <td>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/edit',user.id]">Edit</a></button>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/delete',user.id]">Delete</a></button>
+          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/viewPer',user.personId]">Add to CV</a></button>
+          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/editPer',user.personId]">Edit</a></button>
+          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/deletePer',user.personId]">Delete</a></button>
 
         </td>
       </tr>
