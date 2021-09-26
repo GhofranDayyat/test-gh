@@ -43,7 +43,6 @@
     </mat-card>
 
     <hr>
-    <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/viewCV',listCv[0].id]">Add to CV</a></button>
-    <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/editCV',listCv[0].id]">Edit</a></button>
-    <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/deleteCV',listCv[0].id]">Delete</a></button>
+    <button id="update" type="button" class="btn btn-light mr-1" [routerLink]="['/updateCV',listCv[0].id]">Edit</button>
+    <button id="delete" type="button" class="btn btn-light mr-1" [routerLink]="['/deleteCV',listCv[0].id]">Delete</button>
 </mat-card>

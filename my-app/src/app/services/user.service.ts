@@ -79,8 +79,10 @@ export class UserService {
     if(this.sendObj[0] && this.sendObj[1]){
       console.log('??')
       return this.http.post(this.APIUrl+'/cv', this.cvData)
-    };
-   return  this.http.get(this.APIUrl+'/cv')
+    }else{
+      
+      return  this.http.get(this.APIUrl+'/cv')
+    }
 
  
   }

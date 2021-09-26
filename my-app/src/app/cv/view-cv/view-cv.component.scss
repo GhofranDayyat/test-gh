@@ -60,4 +60,24 @@ position: relative;
             }
         }
     }
+
+    button{
+        border: 1px solid  black;
+        left: 40px;
+        color: #000;
+        width: 150px;
+        margin-left: 100px;
+    }
+    #update{
+        background-color: darkgreen;
+    }
+    #update:hover{
+        background-color: green;
+    }
+    #delete{
+        background-color: darkred;
+    }
+    #delete:hover{
+        background-color: red;
+    }
 }

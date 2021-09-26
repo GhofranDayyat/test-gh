@@ -21,22 +21,33 @@ export class AddCvComponent implements OnInit {
     this.addUserForm  = this.formBuilder.group({
       'personalId': new FormControl(''),
       'experId': new FormControl(''),
-      'name': new FormControl(''),
-
+      'name': new FormControl('')
         })
   }
 
 
-  createCv(){
-    this.userService.addCv(this.addUserForm.value).subscribe(data=>{
-      this._snackBar.open('CV created successfully','', {
-        duration: 2500,
-        panelClass: ['mat-toolbar', 'mat-primary']
-    });
-    }, err=>{
-      console.log(err);
-      this._snackBar.open("Unable to create CV  successfully")
 
-    })
+  createCv(){
+    if(this.addUserForm.valid){
+      this.userService.addCv(this.addUserForm.value).subscribe(data=>{        
+      if (data==='cv post is Successeded !! ') {         
+          this._snackBar.open('CV created successfully','', {
+            duration: 2500,
+            panelClass: ['mat-toolbar', 'mat-primary']
+        });
+      }else{
+        console.log('data');
+        
+          alert('Please Add your Personal and Experience')
+          this._snackBar.open('Please Add your Personal and Experience','', {
+            duration: 2500,
+            panelClass: ['mat-toolbar', 'mat-primary']
+        });
+      }     
+    },err =>{
+      this._snackBar.open('unable to update CV')
+    });
+    
   }
+}
 }
