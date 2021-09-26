@@ -1,0 +1,25 @@
+<mat-card>
+
+    <mat-card-title> Update CV</mat-card-title>
+    <hr>
+    <mat-card-content>
+        <form [formGroup]="addUserForm" (submit)="updateCv()">
+          <p> <a [routerLink]="['/createPer']">Add  Personal Information</a></p> 
+          <p> <a [routerLink]="['/createExp']">Add Experience Information</a> </p>
+  
+          <p>
+              <mat-form-field appearance="outline">
+                  <mat-label>Cv name</mat-label>
+                  <input matInput placeholder="ex: Software Development" formControlName='name' required>              
+              </mat-form-field>
+          </p>
+  
+          <p>
+                  <button class="submit-btn" mat-button color="primary">Update</button>
+                  <button class="list-btn" mat-button color="primary" [routerLink]="['/listCV']">Show CV</button>
+  
+          </p>                        
+          </form>                  
+    </mat-card-content>
+    
+  </mat-card>

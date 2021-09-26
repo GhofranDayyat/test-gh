@@ -1,37 +1,43 @@
-<p>list-user works!</p>
 
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col" sortable="id">id</th>
-        <th scope="col" sortable="fullNam">Full Name</th>
-        <th scope="col" sortable="cityName">City</th>
-        <th scope="col" sortable="userEmail">Email</th>
-        <th scope="col" sortable="mobileNum">Mobile Number</th>
-        <th scope="col" sortable="##">##</th>
+<mat-card>
+  <table class="table table-striped">
 
-    </tr>
-    </thead>
+      <thead>
+      <tr>
+          <th scope="col" sortable="fullNam">Full Name</th>
+          <th scope="col" sortable="cityName">City</th>
+          <th scope="col" sortable="userEmail">Email</th>
+          <th scope="col" sortable="mobileNum">Mobile Number</th>
+          <th scope="col" sortable="##">      </th>
+      </tr>
+      </thead>
+
 
     <tbody>
     
-
-
-
        <tr *ngFor="let user of listUsers"> 
-        <th scope="row">{{ user.personId }}</th>
         <td>{{user.fullNam}}</td>
         <td>{{ user.cityNam }}</td>
         <td>{{ user.userEmail }}</td>
         <td>{{ user.mobileNum }}</td> 
         <td>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/viewPer',user.personId]">Add to CV</a></button>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/editPer',user.personId]">Edit</a></button>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/deletePer',user.personId]">Delete</a></button>
+          <tr>
+
+            <button id="add" type="button" class="btn btn-light mr-1"[routerLink]="['/viewPer',user.personId]">Add to CV</button>
+          </tr>
+          <tr>
+
+            <button id="update"type="button" class="btn btn-light mr-1" [routerLink]="['/editPer',user.personId]">Update</button>
+          </tr>
+          <tr>
+
+            <button id="delete" type="button" class="btn btn-light mr-1"[routerLink]="['/deletePer',user.personId]">Delete</button>
+          </tr>
 
         </td>
       </tr>
 
     </tbody>
   </table>
+</mat-card>

@@ -6,7 +6,12 @@ import { AppComponent } from './app.component';
 import { UsersModule } from './users/users.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+import { CvModule } from './cv/cv.module';
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -15,9 +20,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserModule,
     AppRoutingModule,
     UsersModule,
+    CvModule,
     NgbModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,14 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { EditeUserComponent } from './edite-user/edite-user.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
+
+import { AddUserExpComponent } from './add-user-exp/add-user-exp.component';
+import { ViewUserExpComponent } from './view-user-exp/view-user-exp.component';
+import { ListUserExpComponent } from './list-user-exp/list-user-exp.component';
+import { EditeUserExpComponent } from './edite-user-exp/edite-user-exp.component';
+import { DeleteUserExpComponent } from './delete-user-exp/delete-user-exp.component';
+
+
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,13 +21,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import {RouterModule} from '@angular/router';
-import { AddUserExpComponent } from './add-user-exp/add-user-exp.component';
-import { ViewUserExpComponent } from './view-user-exp/view-user-exp.component';
-import { ListUserExpComponent } from './list-user-exp/list-user-exp.component';
-import { EditeUserExpComponent } from './edite-user-exp/edite-user-exp.component';
-import { DeleteUserExpComponent } from './delete-user-exp/delete-user-exp.component';
-
-@NgModule({
+ @NgModule({
   declarations: [
     ListUserComponent,
     ViewUserComponent,
@@ -30,7 +32,7 @@ import { DeleteUserExpComponent } from './delete-user-exp/delete-user-exp.compon
     ViewUserExpComponent,
     ListUserExpComponent,
     EditeUserExpComponent,
-    DeleteUserExpComponent
+    DeleteUserExpComponent,
   ],
   imports: [
     CommonModule,

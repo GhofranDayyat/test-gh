@@ -1,34 +1,41 @@
-<p>list-user-exp works!</p>
-
+<mat-card>
+  
 <table class="table table-striped">
-    <thead>
-    <tr>
-        <th scope="col" sortable="id">id</th>
-        <th scope="col" sortable="companyName">Full Name</th>
-        <th scope="col" sortable="city">City</th>
-        <th scope="col" sortable="companyFeild">Email</th>
-        <th scope="col" sortable="##">##</th>
+  <thead>
+  <tr>
+      <!-- <th scope="col" sortable="id">id</th> -->
+      <th scope="col" sortable="companyName">company Name</th>
+      <th scope="col" sortable="city">City</th>
+      <th scope="col" sortable="companyFeild">company Felid</th>
+      <th scope="col" sortable=" ">       </th>
 
+  </tr>
+  </thead>
+
+  <tbody>
+  
+
+
+
+     <tr *ngFor="let user of listUsers"> 
+      <!-- <th scope="row">{{ user.experienceId }}</th> -->
+      <td>{{user.companyName}}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.companyFeild }}</td>
+      <td>
+        <tr>
+          <button id="add" type="button" class="btn btn-light mr-1" [routerLink]="['/viewExp',user.experienceId]">Add to CV</button>
+        </tr>
+        <tr>
+          <button id="update"type="button" class="btn btn-light mr-1"[routerLink]="['/editExp',user.experienceId]">Edit</button>
+        </tr>
+        <tr>
+          <button id="delete"type="button" class="btn btn-light mr-1" [routerLink]="['/deleteExp',user.experienceId]">Delete</button>
+        </tr>
+
+      </td>
     </tr>
-    </thead>
 
-    <tbody>
-    
-
-
-
-       <tr *ngFor="let user of listUsers"> 
-        <th scope="row">{{ user.experienceId }}</th>
-        <td>{{user.companyName}}</td>
-        <td>{{ user.city }}</td>
-        <td>{{ user.companyFeild }}</td>
-        <td>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/viewExp',user.experienceId]">Add to CV</a></button>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/editExp',user.experienceId]">Edit</a></button>
-          <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/deleteExp',user.experienceId]">Delete</a></button>
-
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
+  </tbody>
+</table>
+</mat-card>

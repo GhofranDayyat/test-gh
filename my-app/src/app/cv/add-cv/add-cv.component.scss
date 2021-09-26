@@ -1,35 +1,30 @@
+
 mat-card{
     width: 400px;
-    height: 560px;
+    height: 400px;
     margin-right: 50px;
     background-color: whitesmoke;
     box-shadow: #ffff;
     mat-card-title{
         text-align: center;
-        font-size: 25px;
+        font-size: 40px;
     }
     mat-card-content{   
-        margin-left: 15px;
+        margin: 40px;
         p{
             font-size: 18px;
             a{
                 text-decoration: none;
             }
-            a:hover{              
+            a:hover{
+               
                 color: darkred;
-            }
-            mat-form-field {
-                // height: 90px;
-                font-size: 15px;
-                margin: 0px;
-                padding: 0;
             }
             button{
                 background-color: 	#0000FF;
                 border: 1px solid  black;
                 left: 40px;
                 color: #000;
-                margin-top: 20px;
             }
             .submit-btn{
                 
@@ -54,3 +49,4 @@ mat-card{
 
 
 }
+   

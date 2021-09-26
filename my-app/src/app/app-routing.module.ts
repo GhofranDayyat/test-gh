@@ -10,7 +10,11 @@ import { DeleteUserExpComponent } from './users/delete-user-exp/delete-user-exp.
 import { EditeUserExpComponent } from './users/edite-user-exp/edite-user-exp.component';
 import { ListUserExpComponent } from './users/list-user-exp/list-user-exp.component';
 import { ViewUserExpComponent } from './users/view-user-exp/view-user-exp.component';
-
+import {AddCvComponent} from './cv/add-cv/add-cv.component'
+import {DeleteCvComponent} from './cv/delete-cv/delete-cv.component'
+import {ViewCvComponent} from './cv/view-cv/view-cv.component'
+import {UpdateCvComponent} from './cv/update-cv/update-cv.component'
+import {ListCvComponent} from './cv/list-cv/list-cv.component'
 
 const routes: Routes = [
   {path: 'createPer', component:AddUserComponent},
@@ -24,7 +28,15 @@ const routes: Routes = [
   {path: 'viewExp/:id', component:ViewUserExpComponent},
   {path: 'listExp', component:ListUserExpComponent},
   {path: 'deleteExp/:id', component:DeleteUserExpComponent},
-  {path: 'editExp/:id', component:EditeUserExpComponent}
+  {path: 'editExp/:id', component:EditeUserExpComponent},
+
+
+  
+  {path: 'createCV', component:AddCvComponent},
+  {path: 'viewCV/:id', component:ViewCvComponent},
+  {path: 'listCV', component:ListCvComponent},
+  {path: 'deleteCV/:id', component:DeleteCvComponent},
+  {path: 'updateCV/:id', component:UpdateCvComponent},
 ];
 
 @NgModule({
