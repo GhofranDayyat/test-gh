@@ -3,7 +3,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-list-user-exp',
   templateUrl: './list-user-exp.component.html',
-  styleUrls: ['./list-user-exp.component.css']
+  styleUrls: ['./list-user-exp.component.scss']
 })
 export class ListUserExpComponent implements OnInit {
   listUsers: any;

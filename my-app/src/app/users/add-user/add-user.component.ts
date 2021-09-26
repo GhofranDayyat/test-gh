@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
@@ -9,32 +9,45 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AddUserComponent implements OnInit {
 addUserForm: FormGroup= new FormGroup({})
-  constructor(private formBuilder: FormBuilder,
-    private userService: UserService,
+email = new FormControl('', [Validators.required, Validators.email]);
+
+
+
+
+constructor(private formBuilder: FormBuilder,
+  private userService: UserService,
     private _snackBar: MatSnackBar
     ) { }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.addUserForm  = this.formBuilder.group({
-      'fullNam': new FormControl(''),
+      'fullNam':new FormControl('',[Validators.required] ) ,
       'cityNam': new FormControl(''),
-      'userEmail': new FormControl(''),
-      'mobileNum': new FormControl('')
-
-        })
-  }
-
-  createUser(){
-    // console.log(this.addUserForm.value);
-
-    this.userService.addUser(this.addUserForm.value).subscribe(data=>{
-      console.log('user created');
-      this._snackBar.open("user created successfully")
-      
-    }, err=>{
-      console.log(err);
-      this._snackBar.open("Unable to create  successfully")
+      'userEmail':new FormControl('',[Validators.required, Validators.email] ) ,
+      'mobileNum':  new FormControl('')
 
     })
+  }
+  getErrorMessage() {
+    return this.email.hasError('required') ? 'Not a valid email' :
+      this.email.hasError('email') ? 'Not a valid email' : '';
+  }
+ 
+  createUser(){
+    console.log(this.addUserForm.value,this.addUserForm.valid);
+
+    if(this.addUserForm.valid){
+        this.userService.addUser(this.addUserForm.value).subscribe(data=>{      
+          this._snackBar.open('Personal Info added successfully','', {
+            duration: 2500,
+            panelClass: ['mat-toolbar', 'mat-primary']
+        });
+      }, err=>{
+        console.log(err);
+        this._snackBar.open("Unable to add  successfully")
+  
+      })
+      }      
+
   }
 }

@@ -21,10 +21,13 @@ export class DeleteUserExpComponent implements OnInit {
       this.userId = data.id
     });
     if(this.userId){
-      this.userService.deleteUserExp(this.userId).subscribe(data=>{
-        this._snackBar.open('user deleted successfully')
+      this.userService.deleteUserExp(this.userId).subscribe(()=>{
+        this._snackBar.open('Experience Info added successfully','', {
+          duration: 2500,
+          panelClass: ['mat-toolbar', 'mat-primary']
+      });
       },err =>{
-        this._snackBar.open('user unable to deleted successfully')
+        this._snackBar.open('unable to deleted successfully')
       })
     }
   }

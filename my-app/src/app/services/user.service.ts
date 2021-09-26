@@ -12,36 +12,36 @@ export class UserService {
 
     // APIUrl: string= 'https://jsonplaceholder.typicode.com'
 
- 
-  constructor(private http:HttpClient) { }
-  cvData : object   = []
+    constructor(private http:HttpClient ) { }
+  sendObj:any[]=[]
+  cvData : object   = {}
   listUsers(){
-    return this.http.get(this.APIUrl+'/PersonalInfo')
-    // console.log(this.APIUrl+`/PersonalInfo/${}`);
-    
+    return this.http.get(this.APIUrl+'/PersonalInfo')    
   }
   addUser(obj: any){
-    return this.http.post(this.APIUrl+'/PersonalInfo', obj)
+    return this.http.post(this.APIUrl+'/PersonalInfo',obj)
+     
   }
   deleteUser(personId: any){  
     return this.http.delete(this.APIUrl+'/PersonalInfo/'+personId)
   }
 
-  updateUser(obj: any, personId:any){   
+  updateUser(obj: any, personId:any){
+    console.log(obj,personId);
+       
     return this.http.put(this.APIUrl+'/PersonalInfo/'+personId ,obj)
   }
   addPersonIdToCvBucket(id:any){
-    console.log(id);
-    this.cvData={
-      personId:id
-    }  
+    this.sendObj[0]=id
   }
+  viewPerson(id: any){
+    return this.http.get(this.APIUrl+'/PersonalInfo/'+id )
 
+  }
 
   //Exper
   listUsersExp(){
     return this.http.get(this.APIUrl+'/Experience')
-    // console.log(this.APIUrl+`/Experience/${}`);
     
   }
   addUserExp(obj: any){
@@ -54,39 +54,46 @@ export class UserService {
   updateUserExp(obj: any, personId:any){   
     return this.http.put(this.APIUrl+'/Experience/'+personId ,obj)
   }
-  addExpIdToCvBucket(id:any){
-    console.log(id);
-    this.cvData={
-      expId:id
-    }  
+  addExpIdToExpBucket(id:any){
+    this.sendObj[1]=id 
+  }
+
+  viewExp(id: any){
+    return this.http.get(this.APIUrl+'/Experience/'+id )
+
   }
 
 
   //cv
-  listUsersCv(){
+  listCv(){
     return this.http.get(this.APIUrl+'/cv')
-    // console.log(this.APIUrl+`/cv/${}`);
     
   }
-  addUserCv(obj: any){
+  addCv(obj: any){
+    this.sendObj[2]=obj.name
     this.cvData={
-      name:obj.name
-    }  
-    return this.http.post(this.APIUrl+'/cv', this.cvData)
+      personalId:this.sendObj[0] ,
+      experId:this.sendObj[1],
+      name:this.sendObj[2],
+    } 
+    if(this.sendObj[0] && this.sendObj[1]){
+      console.log('??')
+      return this.http.post(this.APIUrl+'/cv', this.cvData)
+    };
+   return  this.http.get(this.APIUrl+'/cv')
+
+ 
   }
-  deleteUserCv(personId: any){  
+  deleteCv(personId: any){  
     return this.http.delete(this.APIUrl+'/cv/'+personId)
   }
 
-  updateUserCv(obj: any, personId:any){   
+  updateCv(obj: any, personId:any){   
     return this.http.put(this.APIUrl+'/cv/'+personId ,obj)
   }
-  // addExpIdToCvBucket(id:any){
-  //   console.log(id);
-  //   this.cvData={
-  //     expId:id
-  //   }  
-  // }
+  viewCv(id: any){
+    return this.http.get(this.APIUrl+'/cv/'+id )
 
+  }
 
 }

@@ -17,12 +17,16 @@ export class ViewUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRout.params.subscribe(data=>{
-      console.log(data);
-
       this.userId = data.id
       if(this.userId){
             this.userService.addPersonIdToCvBucket(this.userId)
-      }
+            this._snackBar.open('Personal Info added To CV','', {
+              duration: 2500,
+              panelClass: ['mat-toolbar', 'mat-primary']
+          });
+          }
+
+
     });
   }
 

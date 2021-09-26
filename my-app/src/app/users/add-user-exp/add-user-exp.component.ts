@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-add-user-exp',
   templateUrl: './add-user-exp.component.html',
-  styleUrls: ['./add-user-exp.component.css']
+  styleUrls: ['./add-user-exp.component.scss']
 })
 export class AddUserExpComponent implements OnInit {
   addUserForm: FormGroup= new FormGroup({})
@@ -16,25 +16,27 @@ export class AddUserExpComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUserForm  = this.formBuilder.group({
-      'fullNam': new FormControl(''),
-      'cityNam': new FormControl(''),
-      'userEmail': new FormControl(''),
-      'mobileNum': new FormControl('')
+      'companyName': new FormControl(''),
+      'city': new FormControl(''),
+      'companyFeild': new FormControl(''),
 
         })
   }
 
   createUserExp(){
     // console.log(this.addUserForm.value);
-
-    this.userService.addUser(this.addUserForm.value).subscribe(data=>{
-      console.log('user created');
-      this._snackBar.open("user created successfully")
-      
-    }, err=>{
-      console.log(err);
-      this._snackBar.open("Unable to create  successfully")
-
-    })
+    if(this.addUserForm.valid){     
+      this.userService.addUserExp(this.addUserForm.value).subscribe(()=>{
+        this._snackBar.open('Personal Info added successfully','', {
+          duration: 2500,
+          panelClass: ['mat-toolbar', 'mat-primary']
+      });
+        
+      }, err=>{
+        console.log(err);
+        this._snackBar.open("Unable to Added  successfully")
+  
+      })
+    }
   }
 }

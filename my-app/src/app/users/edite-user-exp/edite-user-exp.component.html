@@ -1,49 +1,38 @@
-<p>edite-user-exp works!</p>
 <mat-card>
 
     <mat-card-title> Edit Experience Information</mat-card-title>
     <mat-card-content>
         <form [formGroup]="addUserForm" (submit) ="editUserExp()">
-            <p>
-                <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='fullNam' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-              </p>
+          <hr>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Company Name</mat-label>
+              <input matInput #input  maxlength="20" placeholder="Company" formControlName='companyName' required>
+              <mat-hint style="color:red;" >max 20 char</mat-hint>
 
-              <p>
-                <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='cityNam' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-              </p>
+            </mat-form-field>
+          </p>
 
-              <p>
-                <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='userEmail' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-              </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>City</mat-label>
+              <input matInput placeholder="City" formControlName='city' >
+            </mat-form-field>
+          </p>
 
-              <p>
-                <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='mobileNum' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
-                </mat-form-field>
-              </p>
+          <p>
+            <mat-form-field appearance="outline">
+              <mat-label>Company Felid</mat-label>
+              <input matInput placeholder="Felid" formControlName='companyFeild' >
+            </mat-form-field>
+          </p>
 
-              <p>
-                <button mat-button color="primary">create User</button>
 
-              </p>
+
+          <p>
+            <button class="submit-btn" mat-button color="primary">Update</button>
+            <button  class="list-btn" mat-button color="primary" [routerLink]="['/listExp']">Show List</button>
+          </p>
 
     
           </form>

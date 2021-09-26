@@ -1,0 +1,11 @@
+
+        <mat-card >
+            
+            <mat-card-title>Your CVs</mat-card-title>
+            <hr>
+            <mat-card-content>               
+                    <p *ngFor="let cv of listCv">
+                    <a mat-a color="primary" [routerLink]="['/viewCV',cv.id]">{{cv.name}}</a>
+                    </p>                
+            </mat-card-content>
+        </mat-card>

@@ -22,10 +22,13 @@ userId : string   = '';
       this.userId = data.id
     });
     if(this.userId){
-      this.userService.deleteUser(this.userId).subscribe(data=>{
-        this._snackBar.open('user deleted successfully')
+      this.userService.deleteUser(this.userId).subscribe(()=>{
+        this._snackBar.open('Personal Info added successfully','', {
+          duration: 2500,
+          panelClass: ['mat-toolbar', 'mat-primary']
+      });
       },err =>{
-        this._snackBar.open('user unable to deleted successfully')
+        this._snackBar.open('unable to deleted successfully')
       })
     }
   }

@@ -1,50 +1,49 @@
-<p>add-user works!</p>
 
 <mat-card>
 
-    <mat-card-title> Add Personal Information</mat-card-title>
+    <mat-card-title>Personal Information</mat-card-title>
+    <hr>
     <mat-card-content>
         <form [formGroup]="addUserForm" (submit) ="createUser()">
             <p>
                 <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='fullNam' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
+                  <mat-label>Full Name</mat-label>
+                  <input matInput placeholder="Full Name" formControlName='fullNam' required>
+                 <mat-hint style="color:red;" >Full Name is Required</mat-hint>
                 </mat-form-field>
               </p>
 
               <p>
                 <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='cityNam' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
+                  <mat-label>City</mat-label>
+                  <input matInput placeholder="City" formControlName='cityNam' >
                 </mat-form-field>
               </p>
 
               <p>
                 <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='userEmail' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
+                  <mat-label>Email</mat-label>
+                  <input matInput placeholder="Email" formControlName='userEmail' required>
+                  <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
               </p>
 
               <p>
                 <mat-form-field appearance="outline">
-                  <mat-label>Outline form field</mat-label>
-                  <input matInput placeholder="Placeholder" formControlName='mobileNum' >
-                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                  <mat-hint>Hint</mat-hint>
+                  <mat-label>Mobile Number</mat-label>
+                  <span matPrefix>+962 &nbsp;</span>
+                  <input type="tel" matInput placeholder="777-777-7777" formControlName='mobileNum' >
+                  <mat-hint style="color:red;" >Mobile Number is Required</mat-hint>
                 </mat-form-field>
               </p>
 
               <p>
-                <button mat-button color="primary">create User</button>
-
+                <button class="submit-btn" mat-button color="primary">Add To List</button>
+                
+                <button class="list-btn" mat-button color="primary" [routerLink]="['/listPer']">Show List</button>
               </p>
+              
+              
 
     
           </form>

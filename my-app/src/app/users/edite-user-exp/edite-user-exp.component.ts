@@ -6,7 +6,7 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-edite-user-exp',
   templateUrl: './edite-user-exp.component.html',
-  styleUrls: ['./edite-user-exp.component.css']
+  styleUrls: ['./edite-user-exp.component.scss']
 })
 export class EditeUserExpComponent implements OnInit {
 
@@ -20,10 +20,10 @@ export class EditeUserExpComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUserForm  = this.formBuilder.group({
-      'fullNam': new FormControl(''),
-      'cityNam': new FormControl(''),
-      'userEmail': new FormControl(''),
-      'mobileNum': new FormControl('')
+      'companyName': new FormControl(''),
+      'city': new FormControl(''),
+      'companyFeild': new FormControl(''),
+
     
         })
         this.activatedRout.params.subscribe(data=>{    
@@ -33,15 +33,19 @@ export class EditeUserExpComponent implements OnInit {
       }
     
       editUserExp(){
-        if(this.userId){      
-          this.userService.updateUserExp(this.addUserForm.value,this.userId).subscribe(data=>{
-          this._snackBar.open("user updated successfully")
-          
-        }, err=>{
-          console.log(err);
-          this._snackBar.open("Unable to update  user")
-    
-        })
+        if(this.addUserForm.valid){     
+          if(this.userId){      
+            this.userService.updateUserExp(this.addUserForm.value,this.userId).subscribe(()=>{
+            this._snackBar.open('Experience Info updated successfully','', {
+              duration: 2500,
+              panelClass: ['mat-toolbar', 'mat-primary']
+          });
+          }, err=>{
+            console.log(err);
+            this._snackBar.open("Unable to update ")
+      
+          })
+        }
       }
     }
 }

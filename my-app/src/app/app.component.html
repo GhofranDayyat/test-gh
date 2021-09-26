@@ -1,18 +1,38 @@
-<router-outlet></router-outlet>
-<ul ngbNav #nav="ngbNav" class="nav-tabs">
-  <li>
-    <button routerLink="listPer">List of  Persobal</button>
-    
-  </li>
-  <li>
-    <button routerLink="createPer">Add Persobal</button>
-  </li>
 
-  <li>
-    <button routerLink="listExp">List of Experience</button>
-    
-  </li>
-  <li>
-    <button routerLink="createExp">Add Experience</button>
-  </li>
-</ul>
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Maker App</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul ngbNav #nav="ngbNav" class="nav-tabs">
+          <li  ><a routerLink="createCV">CV Maker</a></li>
+          <li  ><a routerLink="#">Home</a></li>
+          <li  ><a routerLink="#">Contact Us</a></li>
+
+        </ul>
+      </nav>
+    </header>
+    <main>
+          <mat-grid-list cols="2" rew="1" rowHeight="1:1">           
+            <mat-grid-tile>
+               <router-outlet></router-outlet>
+             </mat-grid-tile>
+
+            <mat-grid-tile>
+              <h1 class="cv-KeyWord">CV <h2 class="maker-KeyWord">Maker<h2 class="app-KeyWord">Application</h2></h2></h1>
+            </mat-grid-tile>
+          </mat-grid-list>
+    </main>
+    <footer>
+      <p>&copy; All rights reserved</p>  
+    </footer>
+
+  </body>
+  </html>

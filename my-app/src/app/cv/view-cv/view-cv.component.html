@@ -1,0 +1,49 @@
+
+<mat-card class="outer-card">
+    
+    <hr>
+    <mat-card class="inner-card">
+        <mat-card-content>
+            <mat-grid-list cols="2" rew="1" rowHeight="1:1">           
+                <mat-grid-tile>
+                    <div class="photo-title">
+                        <div class="title">
+                            <h1>{{listCv[0].name}}</h1>                       
+                        </div>
+                        <div class="photo">
+                            <img src="https://d1bvpoagx8hqbg.cloudfront.net/originals/how-to-take-a-good-photo-for-your-cv-our-top-tips-a7dab57f5efba015a102fad5b1b7df84.jpg" alt="cv img"/>
+                        </div>
+                    </div>
+                 </mat-grid-tile>
+    
+                <mat-grid-tile>
+                    <div class="totalDetails">
+                        <div class="persDetails">
+                            <hr>
+                            <mat-card-subtitle>Personal Information</mat-card-subtitle>
+                            <hr>
+                            <p>Full Name: {{personalInfoDetails[0].fullNam}}</p>
+                            <p>City Name: {{personalInfoDetails[0].cityNam}}</p>
+                            <p>Email: {{personalInfoDetails[0].userEmail}}</p>
+                            <p>Phone: {{personalInfoDetails[0].mobileNum}}</p>
+                        </div>
+                        <div class="expDetails">
+                            <hr>
+                            <mat-card-subtitle>Experience Information</mat-card-subtitle>
+                            <hr>
+                            <p>Company Name: {{experienceInfoDetails[0].companyName}}</p>
+                            <p>Company Felid: {{experienceInfoDetails[0].companyFeild}}</p>
+                            <p>City: {{experienceInfoDetails[0].city}}</p>
+                        </div>
+                    </div>       
+                </mat-grid-tile>
+              </mat-grid-list>
+    
+        </mat-card-content>
+    </mat-card>
+
+    <hr>
+    <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/viewCV',listCv[0].id]">Add to CV</a></button>
+    <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/editCV',listCv[0].id]">Edit</a></button>
+    <button type="button" class="btn btn-light mr-1"><a [routerLink]="['/deleteCV',listCv[0].id]">Delete</a></button>
+</mat-card>
